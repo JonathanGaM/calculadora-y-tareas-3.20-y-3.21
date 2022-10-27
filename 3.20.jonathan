@@ -1,0 +1,90 @@
+﻿
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace jonathan_ejercicio_3._20
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int n = 0, modelo, talla = 0;
+            double costo = 0, total, manodeobra, tela;
+
+            Console.WriteLine("seleciona un modelo");
+            Console.WriteLine("1=A");
+            Console.WriteLine("2=B");
+            modelo = int.Parse(Console.ReadLine());
+
+
+
+
+            if (modelo == 1 || modelo == 2)
+            {
+                Console.WriteLine("ingresa el numero de pantalones a fabricar");
+                n = int.Parse(Console.ReadLine());
+                Console.WriteLine("ingresa el costo por metro de tela");
+                costo = int.Parse(Console.ReadLine());
+            }
+            if (modelo == 1)
+            {
+                tela = (costo * 1.5);
+                manodeobra = (tela * .8);
+            }
+            else
+
+            {
+                tela = (costo * 1.8);
+                manodeobra = (tela * .95);
+            }
+            total = tela + manodeobra;
+            Console.WriteLine("- ingresa la talla-");
+            Console.WriteLine("1=talla 30");
+            Console.WriteLine("2=talla 32");
+            Console.WriteLine("3=talla 36");
+            Console.ReadKey();
+
+            if (talla >= 1 && talla <= 3)
+                if (talla == 2 || talla == 3)
+                {
+                    Console.WriteLine(" se aplico un 4% extra por la talla $" + total * .04);
+                }
+            {
+                Console.WriteLine(" el gasto por tela de 1 pantalon es:$" + tela);
+                Console.WriteLine(" el gasto por mano de obra de 1 pantalon es:$" + manodeobra);
+                Console.WriteLine(" cargo extra del 30% de ganancia $" + total * .30);
+                total = total + (total * .30);
+                Console.WriteLine("el precio final de venta de 1 pantalon $" + total);
+                Console.WriteLine();
+                Console.WriteLine(" el gasto en tela por pantalones es :$" + tela * n);
+                Console.WriteLine(" el gato por mano de obra es pantalones es:$" + manodeobra * n);
+                Console.WriteLine(" el total por la venta de  pantalones es:$" + total * n);
+                Console.WriteLine(" la ganancia neta por pantalones es:$" + ((total - (tela + manodeobra)) * n));
+            }
+
+
+            if (talla <= 0)
+            {
+
+                Console.WriteLine(" ingresa una talla correcta");
+
+
+            }
+            else
+            if (modelo <= 0)
+            {
+                Console.WriteLine("ingresa un modelo correcto");
+            }
+
+
+
+            Console.ReadKey();
+
+        }
+    }
+}
+
